@@ -1,5 +1,14 @@
 package com.project.budget_service.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class BudgetCalulatorRequest {
 
     private Double salaryAsIncome;
@@ -8,7 +17,7 @@ public class BudgetCalulatorRequest {
     private Double housing;
     private Double utilities;
     private Double groceries;
-    private Double Transportation;
+    private Double transportation;
     private Double childCare;
     private Double healthCare;
     private Double allTypeOfLoans;

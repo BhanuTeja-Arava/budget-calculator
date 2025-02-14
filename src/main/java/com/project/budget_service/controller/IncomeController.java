@@ -22,17 +22,17 @@ public class IncomeController {
         this.incomeService = incomeService;
     }
 
-    @PostMapping
-    public String UpdateTotalIncome(@RequestBody IncomeRequest incomeRequest) {
-//        Income result = Income.builder().salaryAsIncome(incomeRequest.getSalaryAsIncome())
-//                .rentsAsIncome(incomeRequest.getRentsAsIncome())
-//                .otherSourceAsIncome(incomeRequest.getOtherSourceAsIncome())
-//                .build();
-
-        //System.out.println(result.getTotalIncome());
-
-        return " The Total Income " + incomeService.totalIncome(incomeRequest);
-    }
+//    @PostMapping
+//    public String UpdateTotalIncome(@RequestBody IncomeRequest incomeRequest) {
+////        Income result = Income.builder().salaryAsIncome(incomeRequest.getSalaryAsIncome())
+////                .rentsAsIncome(incomeRequest.getRentsAsIncome())
+////                .otherSourceAsIncome(incomeRequest.getOtherSourceAsIncome())
+////                .build();
+//
+//        //System.out.println(result.getTotalIncome());
+//
+//        return " The Total Income " + incomeService.totalIncome(incomeRequest);
+//    }
 
     public String updateTotalExpenditure(@RequestBody ExpenditureRequest expenditureRequest) {
 
@@ -40,9 +40,13 @@ public class IncomeController {
         return null;
     }
 
+    @PostMapping
+    public String budgetCalculator(@RequestBody BudgetCalulatorRequest budgetCalulatorRequest) {
 
-    public String budgetCalculator(@RequestBody BudgetCalulatorRequest budgetCalulatorRequest){
-
-        return null;
+        Double res = incomeService.budgetCalculator(budgetCalulatorRequest);
+        if (res > 0) {
+            return "You have an extra " + res;
+        }
+        return "zero saving for this month";
     }
 }
